@@ -18,11 +18,11 @@ Then open "DGTools/Package Importer" window in the Unity Editor and click on "In
 
 ## How to use?
 
-See [Documentation](https://github.com/Poulpinou/DGTools-Core/Documentation/Doc.md)
+See [Documentation](https://github.com/Poulpinou/DGTools-UI/Documentation/Doc.md)
 
 ## Authors
 
 * **Donovan Persent ([Poulpinou](https://github.com/Poulpinou))**
 
 ## Licenses
-Licences are not implemented yet;
+See [Licence](https://github.com/Poulpinou/DGTools-Core/LICENCE.md)
