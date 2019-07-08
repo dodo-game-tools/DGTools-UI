@@ -6,11 +6,11 @@ namespace DGTools.UI {
         //VARIABLES
         [Header("Relations")]
         [Tooltip("A GameObjet that will be the parent of all menus")]
-        [SerializeField] GameObject container;
+        [SerializeField] protected GameObject container;
         [Tooltip("The path of the folder that contains Menus prefabs")]
-        [SerializeField] [FolderPath(folderPathRestriction = "Resources")] string menusFolder;
+        [SerializeField] [FolderPath(folderPathRestriction = "Resources")] protected string menusFolder;
         [Tooltip("This menu will open on Start()")]
-        [SerializeField] Menu defaultMenu;
+        [SerializeField] protected Menu defaultMenu;
 
         //PROPERTIES
         /// <summary>
@@ -27,7 +27,7 @@ namespace DGTools.UI {
                 }
                 return null;
             }
-            private set
+            protected set
             {
                 foreach (Menu menu in loadedMenus)
                 {
@@ -107,6 +107,17 @@ namespace DGTools.UI {
         }
 
         /// <summary>
+        /// Load and instantiate a menu from "Resources/{menusFolder}/" (don't show it!)
+        /// </summary>
+        /// <typeparam name="TMenu">Type of the menu</typeparam>
+        /// <param name="menu">Name of menu's prefab (takes first menu found if null or empty)</param>
+        /// <returns>Returns the loaded menu</returns>
+        public static TMenu LoadMenu<TMenu>(TMenu menu) where TMenu : Menu
+        {
+            return active.RunLoadMenu<TMenu>(menu);
+        }
+
+        /// <summary>
         /// Opens the previous menu in hierarchy (does nothing if is already at the first sibling index)
         /// </summary>
         public static void PreviousMenu()
@@ -148,7 +159,7 @@ namespace DGTools.UI {
 
 
         //METHODS
-        TMenu RunOpenMenu<TMenu>(TMenu menu) where TMenu : Menu
+        protected virtual TMenu RunOpenMenu<TMenu>(TMenu menu) where TMenu : Menu
         {
             if (activeMenu != null)
                 CloseMenu(activeMenu);
@@ -158,14 +169,14 @@ namespace DGTools.UI {
             return menu;
         }
 
-        TMenu RunOpenMenu<TMenu, TParam>(TParam param, string name = null) where TMenu : Menu<TParam>
+        protected virtual TMenu RunOpenMenu<TMenu, TParam>(TParam param, string name = null) where TMenu : Menu<TParam>
         {
             TMenu menu = RunLoadMenu<TMenu>(name);
             menu.SetParams(param);
             return RunOpenMenu(menu);
         }
 
-        TMenu RunLoadMenu<TMenu>(string name = null) where TMenu : Menu
+        protected virtual TMenu RunLoadMenu<TMenu>(string name = null) where TMenu : Menu
         {
             TMenu menuInstance = null;
             foreach (Menu menu in loadedMenus) {
@@ -200,13 +211,27 @@ namespace DGTools.UI {
             return menuInstance;
         }
 
-        void OpenDefaultMenu()
+        protected virtual TMenu RunLoadMenu<TMenu>(TMenu menu) where TMenu : Menu {
+            foreach (Menu m in loadedMenus)
+            {
+                if (m == menu) {
+                    return menu;
+                }
+            }
+
+            menu = Instantiate(menu, container.transform);
+            menu.gameObject.SetActive(false);
+
+            return menu;
+        }
+
+        protected virtual void OpenDefaultMenu()
         {
             OpenMenu(Instantiate(defaultMenu, container.transform));
         }
 
         //RUNTIME METHODS
-        private void Start()
+        protected virtual void Start()
         {
             OpenDefaultMenu();
         }
