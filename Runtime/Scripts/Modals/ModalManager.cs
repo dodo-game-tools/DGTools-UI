@@ -6,7 +6,7 @@ namespace DGTools.UI
 {
     public class ModalManager : StaticManager<ModalManager>
     {
-        //VARIABLES
+        #region Variables
         [Header("Settings")]
         [Tooltip("If true, container will be set as last sibling on Awake in order to display modals over the other elements")]
         [SerializeField] bool autoSibling = true;
@@ -19,8 +19,9 @@ namespace DGTools.UI
         [Header("Background")]
         [SerializeField] [Range(0, 1)] float backgroundAlpha;
         [SerializeField] [Range(0.01f, 1)] float transitionTime;
+        #endregion
 
-        //PROPERTIES
+        #region Properties
         /// <summary>
         /// The currently opened modal
         /// </summary>
@@ -39,11 +40,11 @@ namespace DGTools.UI
                     if (modal == value)
                     {
                         modal.transform.SetAsLastSibling();
-                        modal.ShowAsync();
+                        modal.Show();
                     }
                     else {
                         if(modal.isActiveAndEnabled)
-                            modal.HideAsync();
+                            modal.Show();
                     }
                 }
             }
@@ -72,8 +73,9 @@ namespace DGTools.UI
         {
             get { return activeModal.transform.GetSiblingIndex(); }
         }
+        #endregion
 
-        //STATIC METHODS
+        #region Static Methods
         /// <summary>
         /// Load a Modal from "Resources/{modalsFolder}/" and open it
         /// </summary>
@@ -144,15 +146,16 @@ namespace DGTools.UI
         public static void CloseModal(Modal modal, bool destroy) {
             if (modal.gameObject.activeInHierarchy)
             {
-                modal.onHideAction = destroy ? UIController.OnHideAction.Destroy : UIController.OnHideAction.Disable;
-                modal.HideAsync();
+                modal.onHideAction = destroy ? UIComponent.OnHideAction.destroy : UIComponent.OnHideAction.disable;
+                modal.Show();
             }
             else {
                 Destroy(modal.gameObject);
             }
         }
+        #endregion
 
-        //METHODS
+        #region Private Methods
         Tmodal RunOpenModal<Tmodal>(Tmodal modal, bool closeCurrent) where Tmodal : Modal {
             if (!isMasking)
                 StartCoroutine(Fade(true));
@@ -187,8 +190,9 @@ namespace DGTools.UI
 
             return modalInstance;
         }
+        #endregion
 
-        //COROUTINES
+        #region Coroutines
         IEnumerator Fade(bool fadeIn) {
             if (fadeIn) container.enabled = true;
             while (fadeIn ? container.color.a < backgroundAlpha : container.color.a > 0) {
@@ -209,13 +213,15 @@ namespace DGTools.UI
             }
             if (!fadeIn) container.enabled = false;
         }
+        #endregion
 
-        //RUNTIME METHODS
+        #region Runtime Methods
         protected override void Awake()
         {
             base.Awake();
             if(autoSibling)
                 container.transform.SetAsLastSibling();
         }
+        #endregion
     }
 }
