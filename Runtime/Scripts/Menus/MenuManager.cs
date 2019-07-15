@@ -3,16 +3,17 @@
 namespace DGTools.UI {
     public class MenuManager : StaticManager<MenuManager>
     {
-        //VARIABLES
+        #region Variables
         [Header("Relations")]
         [Tooltip("A GameObjet that will be the parent of all menus")]
-        [SerializeField] GameObject container;
+        [SerializeField] protected GameObject container;
         [Tooltip("The path of the folder that contains Menus prefabs")]
-        [SerializeField] [FolderPath(folderPathRestriction = "Resources")] string menusFolder;
-        [Tooltip("This menu will open on Start()")]
-        [SerializeField] Menu defaultMenu;
+        [SerializeField] [FolderPath(folderPathRestriction = "Resources")] protected string menusFolder;
+        [Tooltip("This menu will open on Awake()")]
+        [SerializeField] protected Menu defaultMenu;
+        #endregion
 
-        //PROPERTIES
+        #region Properties
         /// <summary>
         /// The currently opened menu
         /// </summary>
@@ -27,13 +28,13 @@ namespace DGTools.UI {
                 }
                 return null;
             }
-            private set
+            protected set
             {
                 foreach (Menu menu in loadedMenus)
                 {
                     if (menu == value)
                     {
-                        menu.ShowAsync();
+                        menu.Show();
                     }
                     else
                     {
@@ -58,8 +59,9 @@ namespace DGTools.UI {
         static int currentSibling {
             get { return activeMenu.transform.GetSiblingIndex(); }
         }
+        #endregion
 
-        //STATIC METHODS
+        #region Static Methods
         /// <summary>
         /// Opens the given Menu
         /// </summary>
@@ -80,6 +82,19 @@ namespace DGTools.UI {
         public static TMenu OpenMenu<TMenu>(string name = null) where TMenu : Menu
         {
             return OpenMenu(LoadMenu<TMenu>(name));
+        }
+
+        /// <summary>
+        ///  Load a menu from "Resources/{menusFolder}/" and open it
+        /// </summary>
+        /// <typeparam name="TMenu">Type of the menu</typeparam>
+        /// <typeparam name="Tparam">Type of menu's param</typeparam>
+        /// <param name="param">Menu's param</param>
+        /// <param name="param"></param>
+        /// <returns>Returns the active menu</returns>
+        public static TMenu OpenMenu<TMenu, Tparam>(TMenu menu, Tparam param) where TMenu : Menu<Tparam> {
+            menu = active.RunLoadMenu(menu, param);
+            return active.RunOpenMenu(menu);
         }
 
         /// <summary>
@@ -107,6 +122,42 @@ namespace DGTools.UI {
         }
 
         /// <summary>
+        /// Load and instantiate a menu from "Resources/{menusFolder}/" (don't show it!)
+        /// </summary>
+        /// <typeparam name="TMenu">Type of the menu</typeparam>
+        /// <typeparam name="TParam">Type of menu's param</typeparam>
+        /// <param name="param">Param value of the menu</param>
+        /// <param name="name">Name of menu's prefab (takes first menu found if null or empty)</param>
+        /// <returns>Returns the loaded menu</returns>
+        public static TMenu LoadMenu<TMenu, TParam>(TParam param, string name = null) where TMenu : Menu<TParam>
+        {
+            return active.RunLoadMenu<TMenu, TParam>(param, name);
+        }
+
+        /// <summary>
+        /// Load and instantiate a menu from "Resources/{menusFolder}/" (don't show it!)
+        /// </summary>
+        /// <typeparam name="TMenu">Type of the menu</typeparam>
+        /// <param name="menu">Name of menu's prefab (takes first menu found if null or empty)</param>
+        /// <returns>Returns the loaded menu</returns>
+        public static TMenu LoadMenu<TMenu>(TMenu menu) where TMenu : Menu
+        {
+            return active.RunLoadMenu(menu);
+        }
+
+        /// <summary>
+        /// Load and instantiate a menu from "Resources/{menusFolder}/" (don't show it!)
+        /// </summary>
+        /// <typeparam name="TMenu">Type of the menu</typeparam>
+        /// <param name="menu">Name of menu's prefab (takes first menu found if null or empty)</param>
+        /// <typeparam name="TParam">Type of menu's param</typeparam>
+        /// <param name="param">Param value of the menu</param>
+        /// <returns>Returns the loaded menu</returns>
+        public static TMenu LoadMenu<TMenu, TParam>(TMenu menu, TParam param) where TMenu : Menu<TParam> {
+            return active.RunLoadMenu(menu, param);
+        }
+
+        /// <summary>
         /// Opens the previous menu in hierarchy (does nothing if is already at the first sibling index)
         /// </summary>
         public static void PreviousMenu()
@@ -127,7 +178,7 @@ namespace DGTools.UI {
         }
 
         /// <summary>
-        /// Closes all menus according to their <see cref="UIController.OnHideAction"/>
+        /// Closes all menus according to their <see cref="UIComponent.OnHideAction"/>
         /// </summary>
         public static void CloseAllMenus()
         {
@@ -138,17 +189,18 @@ namespace DGTools.UI {
         }
 
         /// <summary>
-        /// Closes a menu according to its <see cref="UIController.OnHideAction"/>
+        /// Closes a menu according to its <see cref="UIComponent.OnHideAction"/>
         /// </summary>
         /// <param name="menu">The menu to close</param>
         public static void CloseMenu(Menu menu)
         {
-            menu.HideAsync();
+            menu.Hide();
         }
+        #endregion
 
 
-        //METHODS
-        TMenu RunOpenMenu<TMenu>(TMenu menu) where TMenu : Menu
+        #region Private Methods
+        protected virtual TMenu RunOpenMenu<TMenu>(TMenu menu) where TMenu : Menu
         {
             if (activeMenu != null)
                 CloseMenu(activeMenu);
@@ -158,14 +210,13 @@ namespace DGTools.UI {
             return menu;
         }
 
-        TMenu RunOpenMenu<TMenu, TParam>(TParam param, string name = null) where TMenu : Menu<TParam>
+        protected virtual TMenu RunOpenMenu<TMenu, TParam>(TParam param, string name = null) where TMenu : Menu<TParam>
         {
-            TMenu menu = RunLoadMenu<TMenu>(name);
-            menu.SetParams(param);
+            TMenu menu = RunLoadMenu<TMenu, TParam>(param, name);
             return RunOpenMenu(menu);
         }
 
-        TMenu RunLoadMenu<TMenu>(string name = null) where TMenu : Menu
+        protected virtual TMenu RunLoadMenu<TMenu>(string name = null) where TMenu : Menu
         {
             TMenu menuInstance = null;
             foreach (Menu menu in loadedMenus) {
@@ -200,15 +251,46 @@ namespace DGTools.UI {
             return menuInstance;
         }
 
-        void OpenDefaultMenu()
+        protected virtual TMenu RunLoadMenu<TMenu, TParam>(TParam param, string name = null) where TMenu : Menu<TParam>
         {
-            OpenMenu(Instantiate(defaultMenu, container.transform));
+            TMenu menu = RunLoadMenu<TMenu>(name);
+            menu.SetParams(param);
+            return menu;
         }
 
-        //RUNTIME METHODS
-        private void Start()
+        protected virtual TMenu RunLoadMenu<TMenu>(TMenu menu) where TMenu : Menu {
+            foreach (Menu m in loadedMenus)
+            {
+                if (m == menu) {
+                    return menu;
+                }
+            }
+
+            menu = Instantiate(menu, container.transform);
+            menu.gameObject.SetActive(false);
+
+            return menu;
+        }
+
+        protected virtual TMenu RunLoadMenu<TMenu, TParam>(TMenu menu, TParam param) where TMenu : Menu<TParam>
+        {
+            menu = RunLoadMenu(menu);
+            menu.SetParams(param);
+            return menu;
+        }
+
+        protected virtual void OpenDefaultMenu()
+        {
+            if (defaultMenu == null) return;
+            OpenMenu(Instantiate(defaultMenu, container.transform));
+        }
+        #endregion
+
+        #region Runtime Methods
+        protected virtual void Start()
         {
             OpenDefaultMenu();
         }
+        #endregion
     }
 }
