@@ -287,7 +287,7 @@ namespace DGTools.UI {
         #endregion
 
         #region Runtime Methods
-        protected override void Awake()
+        protected virtual void Start()
         {
             OpenDefaultMenu();
         }

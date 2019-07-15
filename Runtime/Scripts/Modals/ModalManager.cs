@@ -44,7 +44,7 @@ namespace DGTools.UI
                     }
                     else {
                         if(modal.isActiveAndEnabled)
-                            modal.Show();
+                            modal.Hide();
                     }
                 }
             }
@@ -144,14 +144,8 @@ namespace DGTools.UI
         /// <param name="modal">The modal to close</param>
         /// <param name="destroy">true : Destroy the modal; false : Just hide it</param>
         public static void CloseModal(Modal modal, bool destroy) {
-            if (modal.gameObject.activeInHierarchy)
-            {
-                modal.onHideAction = destroy ? UIComponent.OnHideAction.destroy : UIComponent.OnHideAction.disable;
-                modal.Show();
-            }
-            else {
-                Destroy(modal.gameObject);
-            }
+            modal.onHideAction = destroy ? UIComponent.OnHideAction.destroy : UIComponent.OnHideAction.disable;
+            modal.Hide();
         }
         #endregion
 
