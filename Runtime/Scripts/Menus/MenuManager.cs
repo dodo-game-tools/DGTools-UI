@@ -287,7 +287,7 @@ namespace DGTools.UI {
         #endregion
 
         #region Runtime Methods
-<<<<<<< protected virtual void Start()
+        protected virtual void Start()
         {
             OpenDefaultMenu();
         }
