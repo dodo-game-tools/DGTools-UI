@@ -18,7 +18,7 @@ Then open "DGTools/Package Importer" window in the Unity Editor and click on "In
 
 ## How to use?
 
-See [Documentation](https://github.com/Poulpinou/DGTools-UI/Documentation/Doc.md)
+See [Documentation API](https://poulpinou.github.io/DGTools-UI/annotated.html)
 
 ## Authors
 
