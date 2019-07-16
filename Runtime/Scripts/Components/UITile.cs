@@ -21,19 +21,22 @@ namespace DGTools.UI {
         #endregion
 
         #region Public Methods
-        public void SetItem(IUITilable item) {
+        public void SetItem(IUITilable item, bool addOnClickEvent = false) {
             this.item = item;
-            RefreshTile();
+            RefreshTile(addOnClickEvent);
         }
 
-        public virtual void RefreshTile() {
+        public virtual void RefreshTile(bool addOnClickEvent = false) {
             icon.sprite = item.tileIcon;
             title.text = item.tileTitle;
             text.text = item.tileText;
             coloredImage.color = item.tileColor;
 
-            button.onClick.RemoveAllListeners();
-            button.onClick.AddListener(item.OnTileClick);
+            if (addOnClickEvent)
+            {
+                button.onClick.RemoveListener(item.OnTileClick);
+                button.onClick.AddListener(item.OnTileClick);
+            }
         }
         #endregion
 
