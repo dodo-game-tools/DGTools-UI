@@ -133,7 +133,7 @@ namespace DGTools.UI {
         #region Private Methods
         protected virtual UITile InstantiateTile(IUITilable item) {
             UITile tile = Instantiate(tileModel, gridLayout.transform);
-            tile.SetItem(item);
+            tile.SetItem(item, true);
             tile.button.onClick.AddListener(delegate { OnTileClick(tile); });
             tiles.Add(tile);
             return tile;
@@ -194,7 +194,7 @@ namespace DGTools.UI {
         #endregion
 
         #region Runtime Methods
-        private void Awake()
+        protected override void Awake()
         {
             CheckStructure();
         }
