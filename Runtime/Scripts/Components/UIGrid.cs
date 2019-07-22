@@ -39,6 +39,14 @@ namespace DGTools.UI {
 
         #region Public Methods
         /// <summary>
+        /// Get Instantiated <see cref="UITile"/>
+        /// </summary>
+        /// <returns>A <see cref="List"/> of <see cref="UITile"/></returns>
+        public virtual List<UITile> GetTiles() {
+            return tiles;
+        }
+
+        /// <summary>
         /// Refresh each <see cref="UITile"/> on grid display
         /// </summary>
         public virtual void RefreshDisplay() {
