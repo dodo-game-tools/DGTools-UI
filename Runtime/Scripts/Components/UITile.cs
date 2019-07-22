@@ -27,10 +27,10 @@ namespace DGTools.UI {
         }
 
         public virtual void RefreshTile(bool addOnClickEvent = false) {
-            icon.sprite = item.tileIcon;
-            title.text = item.tileTitle;
-            text.text = item.tileText;
-            coloredImage.color = item.tileColor;
+            if(icon) icon.sprite = item.tileIcon;
+            if(title) title.text = item.tileTitle;
+            if(text) text.text = item.tileText;
+            if(coloredImage) coloredImage.color = item.tileColor;
 
             if (addOnClickEvent)
             {
