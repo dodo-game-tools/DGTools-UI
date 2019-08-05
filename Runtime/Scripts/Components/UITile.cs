@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
-using UnityEditor;
 using UnityEngine.UI;
+
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 
 namespace DGTools.UI {
     [RequireComponent(typeof(Button))]
@@ -27,19 +30,31 @@ namespace DGTools.UI {
         }
 
         public virtual void RefreshTile(bool addOnClickEvent = false) {
-            if(icon) icon.sprite = item.tileIcon;
-            if(title) title.text = item.tileTitle;
-            if(text) text.text = item.tileText;
-            if(coloredImage) coloredImage.color = item.tileColor;
+            if(icon) icon.sprite = item != null? item.tileIcon : null;
+            if(title) title.text = item != null ? item.tileTitle : null;
+            if(text) text.text = item != null ? item.tileText : null;
+            if(coloredImage) coloredImage.color = item != null ? item.tileColor : Color.white;
 
-            if (addOnClickEvent)
+            if (addOnClickEvent && item != null)
             {
                 button.onClick.RemoveListener(item.OnTileClick);
                 button.onClick.AddListener(item.OnTileClick);
             }
         }
+
+        public override void Clear()
+        {
+            SetItem(null);
+        }
         #endregion
 
+        #region Private Methods
+        protected override void Build()
+        {
+        }
+        #endregion
+
+#if UNITY_EDITOR
         #region Editor Methods
         [MenuItem("GameObject/UI/DGTools/UITile", false, 10)]
         static void CreateCustomGameObject(MenuCommand menuCommand)
@@ -51,5 +66,6 @@ namespace DGTools.UI {
             Selection.activeObject = tile;
         }
         #endregion
+#endif
     }
 }

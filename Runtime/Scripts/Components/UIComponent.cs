@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace DGTools.UI
 {
-    public class UIComponent : MonoBehaviour
+    public abstract class UIComponent : MonoBehaviour
     {
         #region Enums
         public enum OnHideAction { none, disable, destroy }
@@ -64,6 +64,11 @@ namespace DGTools.UI
                 }
             }
         }
+
+        /// <summary>
+        /// True if component has been built
+        /// </summary>
+        public bool built { get; protected set; } = false;
         #endregion
 
         #region Public Methods
@@ -118,6 +123,14 @@ namespace DGTools.UI
             onHide.AddListener(action);
             Hide();
         }
+
+        /// <summary>
+        /// Rebuild the component
+        /// </summary>
+        public void Reload() {
+            Clear();
+            Build();
+        }
         #endregion
 
         #region Private Methods
@@ -134,6 +147,27 @@ namespace DGTools.UI
                 );
             }
         }
+
+        void RunBuild() {
+            if (!built) {
+                Build();
+                built = true;
+            }
+        }
+
+        void RunClear() {
+            if (built)
+            {
+                Clear();
+                built = false;
+            }
+        }
+        #endregion
+
+        #region Abstract Methods
+        protected abstract void Build();
+
+        public abstract void Clear();
         #endregion
 
         #region Event Methods

@@ -17,12 +17,6 @@ namespace DGTools.UI {
             ModalManager.PreviousModal();
         }
 
-        public override void Show(bool skipAnim = false)
-        {
-            Build();
-            base.Show();
-        }
-
         /// <summary>
         /// You can override this methods with you own params and set the content of the modal from this
         /// </summary>
@@ -50,7 +44,6 @@ namespace DGTools.UI {
         #endregion
 
         #region Abstract Methods
-        public abstract void Build();        
 
         public abstract void DefaultValidate();
 
