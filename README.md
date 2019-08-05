@@ -24,5 +24,8 @@ See [Documentation API](https://poulpinou.github.io/DGTools-UI/annotated.html)
 
 * **Donovan Persent ([Poulpinou](https://github.com/Poulpinou))**
 
+Contributors : 
+	* **Quentin Roussel ([Hermadeus](https://github.com/Hermadeus))**
+
 ## Licenses
 See [Licence](https://github.com/Poulpinou/DGTools-Core/LICENCE.md)

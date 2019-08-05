@@ -221,7 +221,7 @@ namespace DGTools.UI {
             Selection.activeObject = grid;
         }
         #endregion
-    }
 #endif
+    }
 }
 
