@@ -33,7 +33,7 @@ namespace DGTools.UI {
             if(icon) icon.sprite = item != null? item.tileIcon : null;
             if(title) title.text = item != null ? item.tileTitle : null;
             if(text) text.text = item != null ? item.tileText : null;
-            if(coloredImage) coloredImage.color = item.tileColor;
+            if(coloredImage) coloredImage.color = item != null ? item.tileColor : Color.white;
 
             if (addOnClickEvent && item != null)
             {

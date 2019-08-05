@@ -185,7 +185,8 @@ namespace DGTools.UI
                     break;
                 case OnHideAction.disable:
                     gameObject.SetActive(false);
-                    animator.Rebind();
+                    if(hasAnimation)
+                        animator.Rebind();
                     break;
                 case OnHideAction.destroy:
                     Destroy(gameObject);
