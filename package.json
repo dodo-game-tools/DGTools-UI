@@ -1,9 +1,13 @@
 {
   "name": "com.dgtools.ui",
   "displayName": "DGTools UI",
+<<<<<<< Updated upstream
   "version": "0.0.6",
+=======
+  "version": "0.1.0",
+>>>>>>> Stashed changes
   "dependencies": {
-    "com.dgtools.core": ""
+    "com.dgtools.core": "0.1.1"
   },
   "description": "Many UI tools for Unity",
   "type": "tool",

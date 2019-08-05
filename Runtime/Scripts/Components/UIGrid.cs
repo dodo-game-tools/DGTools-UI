@@ -1,11 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 using System.Linq;
 using System;
+
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 
 namespace DGTools.UI {
     [RequireComponent(typeof(ScrollRect))]
@@ -58,7 +61,7 @@ namespace DGTools.UI {
         /// <summary>
         /// Makes grid empty
         /// </summary>
-        public virtual void Clear()
+        public override void Clear()
         {
             foreach (UITile tile in gridLayout.GetComponentsInChildren<UITile>())
             {
@@ -168,6 +171,11 @@ namespace DGTools.UI {
                     selector.GetComponent<LayoutElement>().ignoreLayout = true;
             }
         }
+
+        protected override void Build()
+        {
+            CheckStructure();
+        }
         #endregion
 
         #region Event Methods
@@ -201,13 +209,7 @@ namespace DGTools.UI {
         }
         #endregion
 
-        #region Runtime Methods
-        protected override void Awake()
-        {
-            CheckStructure();
-        }
-        #endregion
-
+#if UNITY_EDITOR
         #region Editor Methods
         [MenuItem("GameObject/UI/DGTools/UIGrid", false, 10)]
         static void CreateCustomGameObject(MenuCommand menuCommand)
@@ -220,5 +222,6 @@ namespace DGTools.UI {
         }
         #endregion
     }
+#endif
 }
 
