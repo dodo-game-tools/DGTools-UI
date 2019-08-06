@@ -17,7 +17,7 @@ namespace DGTools.UI {
         /// <summary>
         /// The currently opened menu
         /// </summary>
-        public static Menu activeMenu {
+        /*public static Menu activeMenu {
             get
             {
                 Menu[] loaded = loadedMenus;
@@ -43,7 +43,8 @@ namespace DGTools.UI {
                     }
                 }
             }
-        }
+        }*/
+        public static Menu activeMenu;
 
         /// <summary>
         /// All menus currently loaded in hierarchy
@@ -220,7 +221,7 @@ namespace DGTools.UI {
         {
             TMenu menuInstance = null;
             foreach (Menu menu in loadedMenus) {
-                if (menu is TMenu && (string.IsNullOrEmpty(name) || menu.name == name)) {
+                if (menu is TMenu && (string.IsNullOrEmpty(name) || menu.name.Replace("(Clone)", "") == name)) {
                     menuInstance = menu as TMenu;
                     menuInstance.Reload();
                     return menuInstance;
@@ -236,9 +237,15 @@ namespace DGTools.UI {
             {
                 foreach (TMenu menu in menus)
                 {
-                    if (menu.name == name) menuInstance = menu;
+                    if (menu.name.Replace("(Clone)", "") == name)
+                    {
+                        menuInstance = menu;
+                        break;
+                    }
                 }
-                throw new System.Exception(string.Format("No Menu of type {0} with name {1} found at {2}", typeof(TMenu), name, menusFolder));
+
+                if(menuInstance == null)
+                    throw new System.Exception(string.Format("No Menu of type {0} with name {1} found at {2}", typeof(TMenu), name, menusFolder));
             }
             else
             {
