@@ -25,24 +25,6 @@
         {
             MenuManager.CloseMenu(this);
         }
-
-        public override void Clear()
-        {
-            OnClear();
-        }
-        #endregion
-
-        #region Private Methods
-        protected override void Build()
-        {
-            OnBuild();
-        }
-        #endregion
-
-        #region Abstract Methods
-        protected abstract void OnBuild();
-
-        protected abstract void OnClear();
         #endregion
     }
 
