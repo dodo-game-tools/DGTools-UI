@@ -13,6 +13,10 @@ namespace DGTools.UI {
         [SerializeField] protected Menu defaultMenu;
         #endregion
 
+        #region Private Variables
+        Menu _activeMenu;
+        #endregion
+
         #region Properties
         /// <summary>
         /// The currently opened menu
@@ -44,7 +48,16 @@ namespace DGTools.UI {
                 }
             }
         }*/
-        public static Menu activeMenu;
+        public static Menu activeMenu {
+            get {
+                return active._activeMenu;
+            }
+            set {
+                active._activeMenu.Hide();
+                active._activeMenu = value;
+                active._activeMenu.Show();
+            }
+        }
 
         /// <summary>
         /// All menus currently loaded in hierarchy
