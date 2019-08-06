@@ -53,7 +53,8 @@ namespace DGTools.UI {
                 return active._activeMenu;
             }
             set {
-                active._activeMenu.Hide();
+                if(active._activeMenu)
+                    active._activeMenu.Hide();
                 active._activeMenu = value;
                 active._activeMenu.Show();
             }
@@ -216,9 +217,6 @@ namespace DGTools.UI {
         #region Private Methods
         protected virtual TMenu RunOpenMenu<TMenu>(TMenu menu) where TMenu : Menu
         {
-            if (activeMenu != null)
-                CloseMenu(activeMenu);
-
             activeMenu = menu;
 
             return menu;
