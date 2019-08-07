@@ -13,11 +13,15 @@ namespace DGTools.UI {
         [SerializeField] protected Menu defaultMenu;
         #endregion
 
+        #region Private Variables
+        Menu _activeMenu;
+        #endregion
+
         #region Properties
         /// <summary>
         /// The currently opened menu
         /// </summary>
-        public static Menu activeMenu {
+        /*public static Menu activeMenu {
             get
             {
                 Menu[] loaded = loadedMenus;
@@ -42,6 +46,17 @@ namespace DGTools.UI {
                             CloseMenu(menu);
                     }
                 }
+            }
+        }*/
+        public static Menu activeMenu {
+            get {
+                return active._activeMenu;
+            }
+            set {
+                if(active._activeMenu)
+                    active._activeMenu.Hide();
+                active._activeMenu = value;
+                active._activeMenu.Show();
             }
         }
 
@@ -202,9 +217,6 @@ namespace DGTools.UI {
         #region Private Methods
         protected virtual TMenu RunOpenMenu<TMenu>(TMenu menu) where TMenu : Menu
         {
-            if (activeMenu != null)
-                CloseMenu(activeMenu);
-
             activeMenu = menu;
 
             return menu;
@@ -220,7 +232,7 @@ namespace DGTools.UI {
         {
             TMenu menuInstance = null;
             foreach (Menu menu in loadedMenus) {
-                if (menu is TMenu && (string.IsNullOrEmpty(name) || menu.name == name)) {
+                if (menu is TMenu && (string.IsNullOrEmpty(name) || menu.name.Replace("(Clone)", "") == name)) {
                     menuInstance = menu as TMenu;
                     menuInstance.Reload();
                     return menuInstance;
@@ -236,9 +248,15 @@ namespace DGTools.UI {
             {
                 foreach (TMenu menu in menus)
                 {
-                    if (menu.name == name) menuInstance = menu;
+                    if (menu.name.Replace("(Clone)", "") == name)
+                    {
+                        menuInstance = menu;
+                        break;
+                    }
                 }
-                throw new System.Exception(string.Format("No Menu of type {0} with name {1} found at {2}", typeof(TMenu), name, menusFolder));
+
+                if(menuInstance == null)
+                    throw new System.Exception(string.Format("No Menu of type {0} with name {1} found at {2}", typeof(TMenu), name, menusFolder));
             }
             else
             {

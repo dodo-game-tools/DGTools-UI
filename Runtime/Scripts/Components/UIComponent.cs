@@ -9,7 +9,7 @@ namespace DGTools.UI
     public abstract class UIComponent : MonoBehaviour
     {
         #region Enums
-        public enum OnHideAction { none, disable, destroy }
+        public enum OnHideAction { none, clear, disable, disableAndClear, destroy }
         #endregion
 
         #region Public Variables
@@ -173,6 +173,7 @@ namespace DGTools.UI
         #region Event Methods
         public virtual void OnShow()
         {
+            RunBuild();
             onShow.Invoke(this);
             onShow.RemoveAllListeners();
         }
@@ -185,8 +186,13 @@ namespace DGTools.UI
                     break;
                 case OnHideAction.disable:
                     gameObject.SetActive(false);
-                    if(hasAnimation)
-                        animator.Rebind();
+                    break;
+                case OnHideAction.clear:
+                    RunClear();
+                    break;
+                case OnHideAction.disableAndClear:
+                    gameObject.SetActive(false);
+                    RunClear();
                     break;
                 case OnHideAction.destroy:
                     Destroy(gameObject);
@@ -194,6 +200,7 @@ namespace DGTools.UI
             }
             onHide.Invoke(this);
             onHide.RemoveAllListeners();
+
         }
         #endregion
 

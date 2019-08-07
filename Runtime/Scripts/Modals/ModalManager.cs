@@ -71,7 +71,7 @@ namespace DGTools.UI
 
         static int currentSibling
         {
-            get { return activeModal.transform.GetSiblingIndex(); }
+            get { return activeModal != null? activeModal.transform.GetSiblingIndex() : -1; }
         }
         #endregion
 
@@ -164,16 +164,22 @@ namespace DGTools.UI
 
         Tmodal RunLoadModal<Tmodal>(string name = null) where Tmodal : Modal {
             Tmodal[] modals = Resources.LoadAll<Tmodal>(modalsFolder);
-            Tmodal modalInstance;
+            Tmodal modalInstance = null;
 
             if (modals.Length == 0)
                 throw new System.Exception(string.Format("No Modal of type {0} found at {1}", typeof(Tmodal), modalsFolder));
 
             if (!string.IsNullOrEmpty(name)) {
                 foreach (Tmodal modal in modals) {
-                    if (modal.name == name) modalInstance = modal;
+                    if (modal.name.Replace("(Clone)", "") == name)
+                    {
+                        modalInstance = modal;
+                        break;
+                    }
                 }
-                throw new System.Exception(string.Format("No Modal of type {0} with name {1} found at {2}", typeof(Tmodal), name, modalsFolder));
+
+                if(modalInstance == null)
+                    throw new System.Exception(string.Format("No Modal of type {0} with name {1} found at {2}", typeof(Tmodal), name, modalsFolder));
             }
             else {
                 modalInstance = modals[0];
