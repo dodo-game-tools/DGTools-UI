@@ -41,12 +41,6 @@ namespace DGTools.UI
                 }
             }
         }
-
-        protected override void Build()
-        {
-            onTileSelect = new SelectedTileEvent();
-            base.Build();
-        }
         #endregion
 
         #region Event Methods
