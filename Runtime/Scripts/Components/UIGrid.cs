@@ -12,7 +12,7 @@ using UnityEditor;
 
 namespace DGTools.UI {
     [RequireComponent(typeof(ScrollRect))]
-    public class UIGrid : UIComponent
+    public class UIGrid : UIComponent, IFillable<IUITilable>
     {
         #region Public Variables
         [Header("Relations")]
@@ -97,6 +97,17 @@ namespace DGTools.UI {
         /// <param name="item">An object that implements <see cref="IUITilable"/></param>
         public void RemoveItem(IUITilable item) {           
             tiles.Remove(tiles.Where(t => t.item == item).First());
+        }
+
+        /// <summary>
+        /// Returns all <see cref="IUITilable"/> items in the grid
+        /// </summary>
+        public List<IUITilable> GetItems() {
+            List<IUITilable> items = new List<IUITilable>();
+            foreach (UITile tile in tiles) {
+                items.Add(tile.item);
+            }
+            return items;
         }
 
         /// <summary>

@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace DGTools.UI
 {
-    public abstract class UIPalet : UIComponent
+    public abstract class UIPalet : UIComponent, IFillable<IUITilable>
     {
         #region Public Variables
         [Tooltip("Insert your tile model")]
@@ -57,6 +57,19 @@ namespace DGTools.UI
         {
             foreach (UISelectableTile tile in tiles.Where(t => items.Contains(t.item)))
                 Destroy(tile.gameObject);
+        }
+
+        /// <summary>
+        /// Returns all <see cref="IUITilable"/> items in the grid
+        /// </summary>
+        public List<IUITilable> GetItems()
+        {
+            List<IUITilable> items = new List<IUITilable>();
+            foreach (UISelectableTile tile in tiles)
+            {
+                items.Add(tile.item);
+            }
+            return items;
         }
 
         public override void Clear()
