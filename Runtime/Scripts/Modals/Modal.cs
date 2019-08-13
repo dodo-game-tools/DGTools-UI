@@ -60,4 +60,8 @@ namespace DGTools.UI {
         }
         #endregion
     }
+
+    public abstract class Modal<Tparam> : Modal {
+        public Tparam param;
+    }
 }

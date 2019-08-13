@@ -101,6 +101,37 @@ namespace DGTools.UI
         }
 
         /// <summary>
+        /// Load a Modal from "Resources/{modalsFolder}/", sets its params and open it
+        /// </summary>
+        /// <typeparam name="Tmodal">Type of the modal</typeparam>
+        /// <typeparam name="Tparam">Type of the modal's param</typeparam>
+        /// <param name="param">Modal's param</param>
+        /// <param name="name">Name of modal's prefab (takes first modal found if null or empty)</param>
+        /// <param name="closeCurrent">Close the active modal if true</param>
+        /// <returns>Returns the active Modal</returns>
+        public static Tmodal OpenModal<Tmodal,Tparam>(Tparam param, string name = null, bool closeCurrent = true) where Tmodal : Modal<Tparam>
+        {
+            Tmodal modal = LoadModal<Tmodal>(name);
+            modal.param = param;
+            return OpenModal(modal, closeCurrent);
+        }
+
+        /// <summary>
+        /// Opens the given modal and sets its params
+        /// </summary>
+        /// <typeparam name="Tmodal">Type of the modal</typeparam>
+        /// <typeparam name="Tparam">Type of the modal's param</typeparam>
+        /// <param name="param">Modal's param</param>
+        /// <param name="modal">The modal to open</param>
+        /// <param name="closeCurrent">Close the active modal if true</param>
+        /// <returns>Returns the active Modal</returns>
+        public static Tmodal OpenModal<Tmodal, Tparam>(Tparam param, Tmodal modal, bool closeCurrent = true) where Tmodal : Modal<Tparam>
+        {
+            modal.param = param;
+            return OpenModal(modal, closeCurrent);
+        }
+
+        /// <summary>
         /// Load and instantiate a Modal from "Resources/{modalsFolder}/"
         /// </summary>
         /// <typeparam name="Tmodal">The type of the modal</typeparam>
