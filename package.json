@@ -1,7 +1,7 @@
 {
   "name": "com.dgtools.ui",
   "displayName": "DGTools UI",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "dependencies": {
     "com.dgtools.core": "0.1.1"
   },

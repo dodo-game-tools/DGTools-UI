@@ -222,11 +222,11 @@ namespace DGTools.UI {
 
 #if UNITY_EDITOR
         #region Editor Methods
-        [MenuItem("GameObject/UI/DGTools/UIGrid", false, 10)]
+        [MenuItem("GameObject/UI/DGTools/Components/UIGrid", false, 10)]
         static void CreateCustomGameObject(MenuCommand menuCommand)
         {
             UIGrid grid = Instantiate(Resources.Load<UIGrid>("Prefabs/UIGrid"));
-            grid.name = grid.name.Replace("(Clone)", "");
+            grid.name = "Grid";
             GameObjectUtility.SetParentAndAlign(grid.gameObject, menuCommand.context as GameObject);
             Undo.RegisterCreatedObjectUndo(grid.gameObject, "Create " + grid.name);
             Selection.activeObject = grid;

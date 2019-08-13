@@ -56,11 +56,11 @@ namespace DGTools.UI {
 
 #if UNITY_EDITOR
         #region Editor Methods
-        [MenuItem("GameObject/UI/DGTools/UITile", false, 10)]
+        [MenuItem("GameObject/UI/DGTools/Components/UITile", false, 10)]
         static void CreateCustomGameObject(MenuCommand menuCommand)
         {
             UITile tile = Instantiate(Resources.Load<UITile>("Prefabs/UITile"));
-            tile.name = tile.name.Replace("(Clone)", "");
+            tile.name = "Tile";
             GameObjectUtility.SetParentAndAlign(tile.gameObject, menuCommand.context as GameObject);
             Undo.RegisterCreatedObjectUndo(tile.gameObject, "Create " + tile.name);
             Selection.activeObject = tile;
