@@ -17,8 +17,8 @@ namespace DGTools.UI
         [SerializeField] Image container;
 
         [Header("Background")]
-        [SerializeField] [Range(0, 1)] float backgroundAlpha;
-        [SerializeField] [Range(0.01f, 1)] float transitionTime;
+        [SerializeField] [Range(0, 1)] float backgroundAlpha = 0.5f;
+        [SerializeField] [Range(0.01f, 1)] float transitionTime = 0.3f;
         #endregion
 
         #region Properties
@@ -254,5 +254,15 @@ namespace DGTools.UI
                 container.transform.SetAsLastSibling();
         }
         #endregion
+
+#if UNITY_EDITOR
+        #region Editor Methods
+        private void OnValidate()
+        {
+            if (container == null)
+                container = GetComponent<Image>();
+        }
+        #endregion
+#endif
     }
 }
