@@ -7,8 +7,10 @@ namespace DGTools.UI
     public abstract class UIPalet : UIComponent, IFillable<IUITilable>
     {
         #region Public Variables
-        [Tooltip("Insert your tile model")]
+        [Tooltip("Relations")]
+        [SerializeField] Transform tilesParent;
         [SerializeField] protected UISelectableTile tileModel;
+        [Tooltip("Items that will be instantiated by default")]
         [SerializeField] [TypeConstraint(typeof(IUITilable))] List<GameObject> items;
         #endregion
 
@@ -93,7 +95,7 @@ namespace DGTools.UI
 
         protected virtual UISelectableTile InstantiateTile(IUITilable item)
         {
-            UISelectableTile tile = Instantiate(tileModel, rectTransform);
+            UISelectableTile tile = Instantiate(tileModel, tilesParent);
             tile.SetItem(item);
             tile.button.onClick.AddListener(delegate { OnTileSelect(tile); });
             return tile;
