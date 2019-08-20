@@ -15,7 +15,7 @@ namespace DGTools.UI
         #endregion
 
         #region Properties
-        protected UISelectableTile[] tiles => GetComponentsInChildren<UISelectableTile>();
+        protected UISelectableTile[] tiles => tilesParent.GetComponentsInChildren<UISelectableTile>();
         #endregion
 
         #region Publics Methods
