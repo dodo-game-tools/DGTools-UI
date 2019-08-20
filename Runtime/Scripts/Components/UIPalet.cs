@@ -8,10 +8,10 @@ namespace DGTools.UI
     {
         #region Public Variables
         [Tooltip("Relations")]
-        [SerializeField] Transform tilesParent;
+        [SerializeField] protected Transform tilesParent;
         [SerializeField] protected UISelectableTile tileModel;
         [Tooltip("Items that will be instantiated by default")]
-        [SerializeField] [TypeConstraint(typeof(IUITilable))] List<GameObject> items;
+        [SerializeField] [TypeConstraint(typeof(IUITilable))] protected List<GameObject> items;
         #endregion
 
         #region Properties
