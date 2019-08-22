@@ -1,10 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-#if UNITY_EDITOR
-using UnityEditor;
-#endif
-
 namespace DGTools.UI {
     [RequireComponent(typeof(Button))]
     public class UITile : UIComponent
@@ -30,7 +26,11 @@ namespace DGTools.UI {
         }
 
         public virtual void RefreshTile(bool addOnClickEvent = false) {
-            if(icon) icon.sprite = item != null? item.tileIcon : null;
+            if (icon)
+            {                
+                icon.sprite = item != null ? item.tileIcon : null;
+                icon.gameObject.SetActive(icon.sprite != null);
+            }
             if(title) title.text = item != null ? item.tileTitle : null;
             if(text) text.text = item != null ? item.tileText : null;
             if(coloredImage) coloredImage.color = item != null ? item.tileColor : Color.white;
@@ -53,19 +53,5 @@ namespace DGTools.UI {
         {
         }
         #endregion
-
-#if UNITY_EDITOR
-        #region Editor Methods
-        [MenuItem("GameObject/UI/DGTools/Components/UITile", false, 10)]
-        static void CreateCustomGameObject(MenuCommand menuCommand)
-        {
-            UITile tile = Instantiate(Resources.Load<UITile>("Prefabs/UITile"));
-            tile.name = "Tile";
-            GameObjectUtility.SetParentAndAlign(tile.gameObject, menuCommand.context as GameObject);
-            Undo.RegisterCreatedObjectUndo(tile.gameObject, "Create " + tile.name);
-            Selection.activeObject = tile;
-        }
-        #endregion
-#endif
     }
 }

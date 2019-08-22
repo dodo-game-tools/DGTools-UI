@@ -3,10 +3,6 @@ using UnityEngine.Events;
 using UnityEngine.UI;
 using System;
 
-#if UNITY_EDITOR
-using UnityEditor;
-#endif
-
 namespace DGTools.UI
 {
 	public class Popup : Modal<PopupSettings>
@@ -103,20 +99,6 @@ namespace DGTools.UI
             Close();
         }
         #endregion
-
-#if UNITY_EDITOR
-        #region Editor Methods
-        [MenuItem("GameObject/UI/DGTools/Components/Popup Example", false, 10)]
-        static void CreateCustomGameObject(MenuCommand menuCommand)
-        {
-            Popup popup = Instantiate(Resources.Load<Popup>("Prefabs/Popup"));
-            popup.name = "Popup";
-            GameObjectUtility.SetParentAndAlign(popup.gameObject, menuCommand.context as GameObject);
-            Undo.RegisterCreatedObjectUndo(popup.gameObject, "Create " + popup.name);
-            Selection.activeObject = popup;
-        }
-        #endregion
-#endif
     }
 
     public class PopupSettings

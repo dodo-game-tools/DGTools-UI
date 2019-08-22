@@ -6,10 +6,6 @@ using UnityEngine.UI;
 using System.Linq;
 using System;
 
-#if UNITY_EDITOR
-using UnityEditor;
-#endif
-
 namespace DGTools.UI {
     [RequireComponent(typeof(ScrollRect))]
     public class UIGrid : UIComponent, IFillable<IUITilable>
@@ -219,20 +215,6 @@ namespace DGTools.UI {
             }
         }
         #endregion
-
-#if UNITY_EDITOR
-        #region Editor Methods
-        [MenuItem("GameObject/UI/DGTools/Components/UIGrid", false, 10)]
-        static void CreateCustomGameObject(MenuCommand menuCommand)
-        {
-            UIGrid grid = Instantiate(Resources.Load<UIGrid>("Prefabs/UIGrid"));
-            grid.name = "Grid";
-            GameObjectUtility.SetParentAndAlign(grid.gameObject, menuCommand.context as GameObject);
-            Undo.RegisterCreatedObjectUndo(grid.gameObject, "Create " + grid.name);
-            Selection.activeObject = grid;
-        }
-        #endregion
-#endif
     }
 }
 

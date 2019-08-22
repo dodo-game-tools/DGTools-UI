@@ -4,7 +4,7 @@ using UnityEngine.Events;
 using System;
 
 namespace DGTools.UI {
-    public class UIPaletMultiple : UIPalet
+    public class UISelectorMultiple : UISelector
     {
         #region Events
         [Serializable] public class SelectedTilesEvent : UnityEvent<List<UISelectableTile>> { }
