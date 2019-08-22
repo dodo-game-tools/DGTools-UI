@@ -17,22 +17,25 @@ Every component have an example that can be instantiated in the editor from the 
 Obviously you can start from zero or override those components (See [Documentation API](https://poulpinou.github.io/DGTools-UI/annotated.html) for more details)
 
 #### Components List
-- **Abstracts and interfaces**:
-Those components should be overrided
+##### **Abstracts and interfaces**:
+> Those components should be overrided
+
  - **UIComponent** : The main class for every component. It provides usefull properties, events and methods to manage display, animations and relations.
 
  - **IUITilable** : This interface allows your item to be used as a tile
 
-- **Basics **:
-Basic components are the components used by containers, but they can be used individually.
+##### **Basics **:
+> Basic components are the components used by containers, but they can be used individually.
+
  - **UITile** : A generic tile that can contain any **IUITilable** item and display its properties. Feel free to customize it and override it at will.
 
  - **UISelectableTile** : A selectable variant of **UITile**
 
  - **UIPanel** : A simple Panel that implements **IUITilable**
 
-- **Containers **:
-Container components are the power of this tool, they are modular and can be used in thousand of cases. You can fill them from the inspector with the **items** field or by script with **AddItem()**.
+##### **Containers **:
+> Container components are the power of this tool, they are modular and can be used in thousand of cases. You can fill them from the inspector with the **items** field or by script with **AddItem()**.
+
  - **UIGrid** : A grid of **UITile** with auto focusing and events
 
  - **UISelectorSimple** : This components generates a list of **UISelectableTiles** from **IUITilable** items and allows you to select one. 
