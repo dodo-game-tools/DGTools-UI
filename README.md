@@ -24,7 +24,7 @@ Obviously you can start from zero or override those components (See [Documentati
 
  - **IUITilable** : This interface allows your item to be used as a tile
 
-##### **Basics **:
+##### **Basics** :
 > Basic components are the components used by containers, but they can be used individually.
 
  - **UITile** : A generic tile that can contain any **IUITilable** item and display its properties. Feel free to customize it and override it at will.
@@ -33,7 +33,7 @@ Obviously you can start from zero or override those components (See [Documentati
 
  - **UIPanel** : A simple Panel that implements **IUITilable**
 
-##### **Containers **:
+##### **Containers** :
 > Container components are the power of this tool, they are modular and can be used in thousand of cases. You can fill them from the inspector with the **items** field or by script with **AddItem()**.
 
  - **UIGrid** : A grid of **UITile** with auto focusing and events
