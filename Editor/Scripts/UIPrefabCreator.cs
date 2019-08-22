@@ -64,6 +64,18 @@ namespace DGTools.UI.Editor
             CreateUIAsset<UISelectorMultiple>(menuCommand, "UISelectorMultiple");
         }
 
+        [MenuItem("GameObject/UI/DGTools/Components/UI Panel Switcher", false, 10)]
+        static void CreateUIPanelSwitcher(MenuCommand menuCommand)
+        {
+            CreateUIAsset<UIPanelSwitcher>(menuCommand, "UIPanelSwitcher");
+        }
+
+        [MenuItem("GameObject/UI/DGTools/Components/UI Panel", false, 10)]
+        static void CreateUIPanel(MenuCommand menuCommand)
+        {
+            CreateUIAsset<UIPanel>(menuCommand, "UIPanel");
+        }
+
         #endregion
     }
 }
