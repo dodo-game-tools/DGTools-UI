@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.15"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>DGTools UI: DGTools.UI.UIComponent Class Reference</title>
+<title>DGTools-UI: DGTools.UI.UIComponent Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -20,11 +20,12 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="DGTools_icon.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">DGTools UI
-   &#160;<span id="projectnumber">0.0.5</span>
+   <div id="projectname">DGTools-UI
+   &#160;<span id="projectnumber">0.1.4</span>
    </div>
-   <div id="projectbrief">Usefull UI tools for Unity</div>
+   <div id="projectbrief">Useful UI components for Unity</div>
   </td>
  </tr>
  </tbody>
@@ -77,13 +78,27 @@ $(function() {
 <a href="#properties">Properties</a> &#124;
 <a href="class_d_g_tools_1_1_u_i_1_1_u_i_component-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">DGTools.UI.UIComponent Class Reference</div>  </div>
+<div class="title">DGTools.UI.UIComponent Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
 </div><!--header-->
 <div class="contents">
-
-<p>Inherits MonoBehaviour.</p>
-
-<p>Inherited by <a class="el" href="class_d_g_tools_1_1_u_i_1_1_menu.html">DGTools.UI.Menu&lt; Tparam &gt;</a>, <a class="el" href="class_d_g_tools_1_1_u_i_1_1_modal.html">DGTools.UI.Modal</a>, <a class="el" href="class_d_g_tools_1_1_u_i_1_1_u_i_grid.html">DGTools.UI.UIGrid</a>, and <a class="el" href="class_d_g_tools_1_1_u_i_1_1_u_i_tile.html">DGTools.UI.UITile</a>.</p>
+<div class="dynheader">
+Inheritance diagram for DGTools.UI.UIComponent:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="class_d_g_tools_1_1_u_i_1_1_u_i_component.png" usemap="#DGTools.UI.UIComponent_map" alt=""/>
+  <map id="DGTools.UI.UIComponent_map" name="DGTools.UI.UIComponent_map">
+<area href="class_d_g_tools_1_1_u_i_1_1_menu.html" alt="DGTools.UI.Menu&lt; Tparam &gt;" shape="rect" coords="0,112,181,136"/>
+<area href="class_d_g_tools_1_1_u_i_1_1_modal.html" alt="DGTools.UI.Modal&lt; Tparam &gt;" shape="rect" coords="191,112,372,136"/>
+<area href="class_d_g_tools_1_1_u_i_1_1_u_i_grid.html" alt="DGTools.UI.UIGrid" shape="rect" coords="382,112,563,136"/>
+<area href="class_d_g_tools_1_1_u_i_1_1_u_i_panel.html" alt="DGTools.UI.UIPanel" shape="rect" coords="573,112,754,136"/>
+<area href="class_d_g_tools_1_1_u_i_1_1_u_i_selector.html" alt="DGTools.UI.UISelector" shape="rect" coords="764,112,945,136"/>
+<area href="class_d_g_tools_1_1_u_i_1_1_u_i_tile.html" alt="DGTools.UI.UITile" shape="rect" coords="1050,112,1231,136"/>
+<area href="class_d_g_tools_1_1_u_i_1_1_u_i_selector_multiple.html" alt="DGTools.UI.UISelectorMultiple" shape="rect" coords="668,168,849,192"/>
+<area href="class_d_g_tools_1_1_u_i_1_1_u_i_selector_simple.html" alt="DGTools.UI.UISelectorSimple" shape="rect" coords="859,168,1040,192"/>
+<area href="class_d_g_tools_1_1_u_i_1_1_u_i_selectable_tile.html" alt="DGTools.UI.UISelectableTile" shape="rect" coords="1050,168,1231,192"/>
+<area href="class_d_g_tools_1_1_u_i_1_1_u_i_panel_switcher.html" alt="DGTools.UI.UIPanelSwitcher" shape="rect" coords="859,224,1040,248"/>
+  </map>
+</div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
@@ -92,9 +107,14 @@ Classes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:aab5365769e92c3cb8a5f2771753b6ff8"><td class="memItemLeft" align="right" valign="top"><a id="aab5365769e92c3cb8a5f2771753b6ff8"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><b>OnHideAction</b> { <b>none</b>, 
+<tr class="memitem:aab5365769e92c3cb8a5f2771753b6ff8"><td class="memItemLeft" align="right" valign="top"><a id="aab5365769e92c3cb8a5f2771753b6ff8"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><b>OnHideAction</b> { <br />
+&#160;&#160;<b>none</b>, 
+<b>clear</b>, 
 <b>disable</b>, 
-<b>destroy</b>
+<b>disableAndClear</b>, 
+<br />
+&#160;&#160;<b>destroy</b>
+<br />
  }</td></tr>
 <tr class="separator:aab5365769e92c3cb8a5f2771753b6ff8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -112,6 +132,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ae40085407bb3664aaac0b629c5b34b92"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_g_tools_1_1_u_i_1_1_u_i_component.html#ae40085407bb3664aaac0b629c5b34b92">Hide</a> (UnityAction&lt; <a class="el" href="class_d_g_tools_1_1_u_i_1_1_u_i_component.html">UIComponent</a> &gt; action)</td></tr>
 <tr class="memdesc:ae40085407bb3664aaac0b629c5b34b92"><td class="mdescLeft">&#160;</td><td class="mdescRight">Hides the component and plays the animation if an Animator has been attached to it  <a href="#ae40085407bb3664aaac0b629c5b34b92">More...</a><br /></td></tr>
 <tr class="separator:ae40085407bb3664aaac0b629c5b34b92"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a74cdf1b4a13ef505e25ba14b84e1dcaf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_g_tools_1_1_u_i_1_1_u_i_component.html#a74cdf1b4a13ef505e25ba14b84e1dcaf">Reload</a> ()</td></tr>
+<tr class="memdesc:a74cdf1b4a13ef505e25ba14b84e1dcaf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rebuild the component  <a href="#a74cdf1b4a13ef505e25ba14b84e1dcaf">More...</a><br /></td></tr>
+<tr class="separator:a74cdf1b4a13ef505e25ba14b84e1dcaf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aab1fe4e25399c313ae4849a017de24fc"><td class="memItemLeft" align="right" valign="top"><a id="aab1fe4e25399c313ae4849a017de24fc"></a>
+abstract void&#160;</td><td class="memItemRight" valign="bottom"><b>Clear</b> ()</td></tr>
+<tr class="separator:aab1fe4e25399c313ae4849a017de24fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad912350df7fe272edca226b9f617dcdd"><td class="memItemLeft" align="right" valign="top"><a id="ad912350df7fe272edca226b9f617dcdd"></a>
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>OnShow</b> ()</td></tr>
 <tr class="separator:ad912350df7fe272edca226b9f617dcdd"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -125,7 +151,7 @@ Public Attributes</h2></td></tr>
 OnHideAction&#160;</td><td class="memItemRight" valign="bottom"><b>onHideAction</b> = OnHideAction.disable</td></tr>
 <tr class="separator:ab041e088bddb52155a757f0e01cc57ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a75cf196a89035794b48acd1ebdc2bf28"><td class="memItemLeft" align="right" valign="top"><a id="a75cf196a89035794b48acd1ebdc2bf28"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>showOnAwake</b> = false</td></tr>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>showOnAwake</b> = true</td></tr>
 <tr class="separator:a75cf196a89035794b48acd1ebdc2bf28"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
@@ -133,6 +159,9 @@ Protected Member Functions</h2></td></tr>
 <tr class="memitem:ae9f4c872b088e71977779df69798aab1"><td class="memItemLeft" align="right" valign="top"><a id="ae9f4c872b088e71977779df69798aab1"></a>
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>CheckComponent</b> ()</td></tr>
 <tr class="separator:ae9f4c872b088e71977779df69798aab1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad83414035691e87528bcf800f9dfa7e2"><td class="memItemLeft" align="right" valign="top"><a id="ad83414035691e87528bcf800f9dfa7e2"></a>
+abstract void&#160;</td><td class="memItemRight" valign="bottom"><b>Build</b> ()</td></tr>
+<tr class="separator:ad83414035691e87528bcf800f9dfa7e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aad31ef5a155a106be44e6f1e6fe549a3"><td class="memItemLeft" align="right" valign="top"><a id="aad31ef5a155a106be44e6f1e6fe549a3"></a>
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>Awake</b> ()</td></tr>
 <tr class="separator:aad31ef5a155a106be44e6f1e6fe549a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -163,6 +192,9 @@ RectTransform&#160;</td><td class="memItemRight" valign="bottom"><b>rectTransfor
 <tr class="memitem:add47f46d270ff36b236e5b3e65c9f35b"><td class="memItemLeft" align="right" valign="top">bool?&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_g_tools_1_1_u_i_1_1_u_i_component.html#add47f46d270ff36b236e5b3e65c9f35b">isShown</a><code> [get, set]</code></td></tr>
 <tr class="memdesc:add47f46d270ff36b236e5b3e65c9f35b"><td class="mdescLeft">&#160;</td><td class="mdescRight">True if component is shown  <a href="#add47f46d270ff36b236e5b3e65c9f35b">More...</a><br /></td></tr>
 <tr class="separator:add47f46d270ff36b236e5b3e65c9f35b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad55205c3539815b80c11a08730083557"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_g_tools_1_1_u_i_1_1_u_i_component.html#ad55205c3539815b80c11a08730083557">built</a> = false<code> [get, protected set]</code></td></tr>
+<tr class="memdesc:ad55205c3539815b80c11a08730083557"><td class="mdescLeft">&#160;</td><td class="mdescRight">True if component has been built  <a href="#ad55205c3539815b80c11a08730083557">More...</a><br /></td></tr>
+<tr class="separator:ad55205c3539815b80c11a08730083557"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="a793649f2afba25d3dace5ea144610601"></a>
@@ -233,6 +265,25 @@ RectTransform&#160;</td><td class="memItemRight" valign="bottom"><b>rectTransfor
 
 </div>
 </div>
+<a id="a74cdf1b4a13ef505e25ba14b84e1dcaf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a74cdf1b4a13ef505e25ba14b84e1dcaf">&#9670;&nbsp;</a></span>Reload()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void DGTools.UI.UIComponent.Reload </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Rebuild the component </p>
+
+</div>
+</div>
 <a id="a4482f27cdc5cc086c9442259a94c9457"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4482f27cdc5cc086c9442259a94c9457">&#9670;&nbsp;</a></span>Show() <span class="overload">[1/2]</span></h2>
 
@@ -264,8 +315,6 @@ RectTransform&#160;</td><td class="memItemRight" valign="bottom"><b>rectTransfor
   </table>
   </dd>
 </dl>
-
-<p>Reimplemented in <a class="el" href="class_d_g_tools_1_1_u_i_1_1_modal.html#a0fec7a85ee8253ccff447f3efe7653bc">DGTools.UI.Modal</a>, and <a class="el" href="class_d_g_tools_1_1_u_i_1_1_menu.html#a32aa6d083a77bcc4594246bb02a6412c">DGTools.UI.Menu&lt; Tparam &gt;</a>.</p>
 
 </div>
 </div>
@@ -304,6 +353,30 @@ RectTransform&#160;</td><td class="memItemRight" valign="bottom"><b>rectTransfor
 </div>
 </div>
 <h2 class="groupheader">Property Documentation</h2>
+<a id="ad55205c3539815b80c11a08730083557"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad55205c3539815b80c11a08730083557">&#9670;&nbsp;</a></span>built</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool DGTools.UI.UIComponent.built = false</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">get</span><span class="mlabel">protected set</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>True if component has been built </p>
+
+</div>
+</div>
 <a id="a06c9bb24cd343a876b56e4caf0261b3e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a06c9bb24cd343a876b56e4caf0261b3e">&#9670;&nbsp;</a></span>hasAnimation</h2>
 

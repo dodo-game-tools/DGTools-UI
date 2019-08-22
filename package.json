@@ -1,9 +1,9 @@
 {
   "name": "com.dgtools.ui",
   "displayName": "DGTools UI",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "dependencies": {
-    "com.dgtools.core": "0.1.1"
+    "com.dgtools.core": "0.1.3"
   },
   "description": "Many UI tools for Unity",
   "type": "tool",

@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['refreshdisplay',['RefreshDisplay',['../class_d_g_tools_1_1_u_i_1_1_u_i_grid.html#aaed3921cb4127cf5fcba7f6ff58d7fc5',1,'DGTools::UI::UIGrid']]],
-  ['reload',['Reload',['../class_d_g_tools_1_1_u_i_1_1_menu.html#a4210a080e0db6dc452660cd98ca3c3ab',1,'DGTools::UI::Menu']]],
-  ['removeitem',['RemoveItem',['../class_d_g_tools_1_1_u_i_1_1_u_i_grid.html#a96f78f92fcea5ada2c042055fd64c725',1,'DGTools::UI::UIGrid']]]
+  ['previous',['Previous',['../class_d_g_tools_1_1_u_i_1_1_menu.html#a79f3e2dc8fb67728466c04044dbb9d1c',1,'DGTools::UI::Menu']]],
+  ['previousmenu',['PreviousMenu',['../class_d_g_tools_1_1_u_i_1_1_menu_manager.html#a029456c0b6414e5fba5adc2b0f246905',1,'DGTools::UI::MenuManager']]],
+  ['previousmodal',['PreviousModal',['../class_d_g_tools_1_1_u_i_1_1_modal_manager.html#a436051a3d5a2aa7e0b451e640ae6611a',1,'DGTools::UI::ModalManager']]]
 ];

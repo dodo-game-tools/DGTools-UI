@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.15"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>DGTools UI: DGTools.UI.ModalManager Class Reference</title>
+<title>DGTools-UI: DGTools.UI.ModalManager Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -20,11 +20,12 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="DGTools_icon.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">DGTools UI
-   &#160;<span id="projectnumber">0.0.5</span>
+   <div id="projectname">DGTools-UI
+   &#160;<span id="projectnumber">0.1.4</span>
    </div>
-   <div id="projectbrief">Usefull UI tools for Unity</div>
+   <div id="projectbrief">Useful UI components for Unity</div>
   </td>
  </tr>
  </tbody>
@@ -77,8 +78,12 @@ $(function() {
 <div class="title">DGTools.UI.ModalManager Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-
-<p>Inherits StaticManager&lt; ModalManager &gt;.</p>
+<div class="dynheader">
+Inheritance diagram for DGTools.UI.ModalManager:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="class_d_g_tools_1_1_u_i_1_1_modal_manager.png" alt=""/>
+ </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
@@ -88,6 +93,12 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a6b0a53765ecc2723f3b3e51e5d9f311c"><td class="memItemLeft" align="right" valign="top">static Tmodal&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_g_tools_1_1_u_i_1_1_modal_manager.html#a6b0a53765ecc2723f3b3e51e5d9f311c">OpenModal&lt; Tmodal &gt;</a> (Tmodal modal, bool closeCurrent=true)</td></tr>
 <tr class="memdesc:a6b0a53765ecc2723f3b3e51e5d9f311c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Opens the given modal  <a href="#a6b0a53765ecc2723f3b3e51e5d9f311c">More...</a><br /></td></tr>
 <tr class="separator:a6b0a53765ecc2723f3b3e51e5d9f311c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae6ec21f676df95ebf4e91b852c3c199e"><td class="memItemLeft" align="right" valign="top">static Tmodal&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_g_tools_1_1_u_i_1_1_modal_manager.html#ae6ec21f676df95ebf4e91b852c3c199e">OpenModal&lt; Tmodal, Tparam &gt;</a> (Tparam param, string name=null, bool closeCurrent=true)</td></tr>
+<tr class="memdesc:ae6ec21f676df95ebf4e91b852c3c199e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Load a <a class="el" href="class_d_g_tools_1_1_u_i_1_1_modal.html">Modal</a> from "Resources/{modalsFolder}/", sets its params and open it  <a href="#ae6ec21f676df95ebf4e91b852c3c199e">More...</a><br /></td></tr>
+<tr class="separator:ae6ec21f676df95ebf4e91b852c3c199e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4e8c1cc7ab85995551e3eb4cecd05137"><td class="memItemLeft" align="right" valign="top">static Tmodal&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_g_tools_1_1_u_i_1_1_modal_manager.html#a4e8c1cc7ab85995551e3eb4cecd05137">OpenModal&lt; Tmodal, Tparam &gt;</a> (Tparam param, Tmodal modal, bool closeCurrent=true)</td></tr>
+<tr class="memdesc:a4e8c1cc7ab85995551e3eb4cecd05137"><td class="mdescLeft">&#160;</td><td class="mdescRight">Opens the given modal and sets its params  <a href="#a4e8c1cc7ab85995551e3eb4cecd05137">More...</a><br /></td></tr>
+<tr class="separator:a4e8c1cc7ab85995551e3eb4cecd05137"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae7ecf3f1f7907f16de43b76172ee6b0b"><td class="memItemLeft" align="right" valign="top">static Tmodal&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_g_tools_1_1_u_i_1_1_modal_manager.html#ae7ecf3f1f7907f16de43b76172ee6b0b">LoadModal&lt; Tmodal &gt;</a> (string name=null)</td></tr>
 <tr class="memdesc:ae7ecf3f1f7907f16de43b76172ee6b0b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Load and instantiate a <a class="el" href="class_d_g_tools_1_1_u_i_1_1_modal.html">Modal</a> from "Resources/{modalsFolder}/"  <a href="#ae7ecf3f1f7907f16de43b76172ee6b0b">More...</a><br /></td></tr>
 <tr class="separator:ae7ecf3f1f7907f16de43b76172ee6b0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -360,6 +371,142 @@ Properties</h2></td></tr>
 <dl><dt><b>Type Constraints</b></dt><dd>
 <table border="0" cellspacing="2" cellpadding="0">
 <tr><td valign="top"><em>Tmodal</em></td><td>&#160;:</td><td valign="top"><em>Modal</em></td><td>&#160;</td></tr>
+</table>
+</dd>
+</dl>
+</div>
+
+</div>
+</div>
+<a id="ae6ec21f676df95ebf4e91b852c3c199e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae6ec21f676df95ebf4e91b852c3c199e">&#9670;&nbsp;</a></span>OpenModal&lt; Tmodal, Tparam &gt;() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static Tmodal DGTools.UI.ModalManager.OpenModal&lt; Tmodal, Tparam &gt; </td>
+          <td>(</td>
+          <td class="paramtype">Tparam&#160;</td>
+          <td class="paramname"><em>param</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>name</em> = <code>null</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>closeCurrent</em> = <code>true</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Load a <a class="el" href="class_d_g_tools_1_1_u_i_1_1_modal.html">Modal</a> from "Resources/{modalsFolder}/", sets its params and open it </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Tmodal</td><td>Type of the modal</td></tr>
+    <tr><td class="paramname">Tparam</td><td>Type of the modal's param</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">param</td><td><a class="el" href="class_d_g_tools_1_1_u_i_1_1_modal.html">Modal</a>'s param</td></tr>
+    <tr><td class="paramname">name</td><td>Name of modal's prefab (takes first modal found if null or empty)</td></tr>
+    <tr><td class="paramname">closeCurrent</td><td>Close the active modal if true</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns the active <a class="el" href="class_d_g_tools_1_1_u_i_1_1_modal.html">Modal</a></dd></dl>
+<div class="typeconstraint">
+<dl><dt><b>Type Constraints</b></dt><dd>
+<table border="0" cellspacing="2" cellpadding="0">
+<tr><td valign="top"><em>Tmodal</em></td><td>&#160;:</td><td valign="top"><em>Modal&lt;Tparam&gt;</em></td><td>&#160;</td></tr>
+</table>
+</dd>
+</dl>
+</div>
+
+</div>
+</div>
+<a id="a4e8c1cc7ab85995551e3eb4cecd05137"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4e8c1cc7ab85995551e3eb4cecd05137">&#9670;&nbsp;</a></span>OpenModal&lt; Tmodal, Tparam &gt;() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static Tmodal DGTools.UI.ModalManager.OpenModal&lt; Tmodal, Tparam &gt; </td>
+          <td>(</td>
+          <td class="paramtype">Tparam&#160;</td>
+          <td class="paramname"><em>param</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Tmodal&#160;</td>
+          <td class="paramname"><em>modal</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>closeCurrent</em> = <code>true</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Opens the given modal and sets its params </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Tmodal</td><td>Type of the modal</td></tr>
+    <tr><td class="paramname">Tparam</td><td>Type of the modal's param</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">param</td><td><a class="el" href="class_d_g_tools_1_1_u_i_1_1_modal.html">Modal</a>'s param</td></tr>
+    <tr><td class="paramname">modal</td><td>The modal to open</td></tr>
+    <tr><td class="paramname">closeCurrent</td><td>Close the active modal if true</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns the active <a class="el" href="class_d_g_tools_1_1_u_i_1_1_modal.html">Modal</a></dd></dl>
+<div class="typeconstraint">
+<dl><dt><b>Type Constraints</b></dt><dd>
+<table border="0" cellspacing="2" cellpadding="0">
+<tr><td valign="top"><em>Tmodal</em></td><td>&#160;:</td><td valign="top"><em>Modal&lt;Tparam&gt;</em></td><td>&#160;</td></tr>
 </table>
 </dd>
 </dl>

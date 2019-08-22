@@ -1,6 +1,8 @@
 var searchData=
 [
-  ['previous',['Previous',['../class_d_g_tools_1_1_u_i_1_1_menu.html#a79f3e2dc8fb67728466c04044dbb9d1c',1,'DGTools::UI::Menu']]],
-  ['previousmenu',['PreviousMenu',['../class_d_g_tools_1_1_u_i_1_1_menu_manager.html#a029456c0b6414e5fba5adc2b0f246905',1,'DGTools::UI::MenuManager']]],
-  ['previousmodal',['PreviousModal',['../class_d_g_tools_1_1_u_i_1_1_modal_manager.html#a436051a3d5a2aa7e0b451e640ae6611a',1,'DGTools::UI::ModalManager']]]
+  ['opendefaultpalet',['OpenDefaultPalet',['../class_d_g_tools_1_1_u_i_1_1_u_i_panel_switcher.html#aea390e4134fd1533c464bfbb845afee8',1,'DGTools::UI::UIPanelSwitcher']]],
+  ['openmenu_3c_20tmenu_20_3e',['OpenMenu&lt; TMenu &gt;',['../class_d_g_tools_1_1_u_i_1_1_menu_manager.html#ad01f494619bc01fe3c3417a5cab6d14a',1,'DGTools.UI.MenuManager.OpenMenu&lt; TMenu &gt;(TMenu menu)'],['../class_d_g_tools_1_1_u_i_1_1_menu_manager.html#a02f4e72b4136e7cdd76964674b6c31de',1,'DGTools.UI.MenuManager.OpenMenu&lt; TMenu &gt;(string name=null)']]],
+  ['openmenu_3c_20tmenu_2c_20tparam_20_3e',['OpenMenu&lt; TMenu, Tparam &gt;',['../class_d_g_tools_1_1_u_i_1_1_menu_manager.html#a9933e5fdc09c0ea9ba73b3528f34879f',1,'DGTools.UI.MenuManager.OpenMenu&lt; TMenu, Tparam &gt;(TMenu menu, Tparam param)'],['../class_d_g_tools_1_1_u_i_1_1_menu_manager.html#a7d723c958110095f1e6743ce3e9ee522',1,'DGTools.UI.MenuManager.OpenMenu&lt; TMenu, Tparam &gt;(Tparam param, string name=null)']]],
+  ['openmodal_3c_20tmodal_20_3e',['OpenModal&lt; Tmodal &gt;',['../class_d_g_tools_1_1_u_i_1_1_modal_manager.html#a688d1c4c726b003817249d6c1b3fcc77',1,'DGTools.UI.ModalManager.OpenModal&lt; Tmodal &gt;(string name=null, bool closeCurrent=true)'],['../class_d_g_tools_1_1_u_i_1_1_modal_manager.html#a6b0a53765ecc2723f3b3e51e5d9f311c',1,'DGTools.UI.ModalManager.OpenModal&lt; Tmodal &gt;(Tmodal modal, bool closeCurrent=true)']]],
+  ['openmodal_3c_20tmodal_2c_20tparam_20_3e',['OpenModal&lt; Tmodal, Tparam &gt;',['../class_d_g_tools_1_1_u_i_1_1_modal_manager.html#ae6ec21f676df95ebf4e91b852c3c199e',1,'DGTools.UI.ModalManager.OpenModal&lt; Tmodal, Tparam &gt;(Tparam param, string name=null, bool closeCurrent=true)'],['../class_d_g_tools_1_1_u_i_1_1_modal_manager.html#a4e8c1cc7ab85995551e3eb4cecd05137',1,'DGTools.UI.ModalManager.OpenModal&lt; Tmodal, Tparam &gt;(Tparam param, Tmodal modal, bool closeCurrent=true)']]]
 ];

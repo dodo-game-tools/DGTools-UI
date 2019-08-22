@@ -1,8 +1,9 @@
 var searchData=
 [
-  ['uicomponent',['UIComponent',['../class_d_g_tools_1_1_u_i_1_1_u_i_component.html',1,'DGTools::UI']]],
-  ['uicomponentevent',['UIComponentEvent',['../class_d_g_tools_1_1_u_i_1_1_u_i_component_1_1_u_i_component_event.html',1,'DGTools::UI::UIComponent']]],
-  ['uicomponentstatemachine',['UIComponentStateMachine',['../class_d_g_tools_1_1_u_i_1_1_u_i_component_state_machine.html',1,'DGTools::UI']]],
-  ['uigrid',['UIGrid',['../class_d_g_tools_1_1_u_i_1_1_u_i_grid.html',1,'DGTools::UI']]],
-  ['uitile',['UITile',['../class_d_g_tools_1_1_u_i_1_1_u_i_tile.html',1,'DGTools::UI']]]
+  ['menu',['Menu',['../class_d_g_tools_1_1_u_i_1_1_menu.html',1,'DGTools.UI.Menu'],['../class_d_g_tools_1_1_u_i_1_1_menu.html',1,'DGTools.UI.Menu&lt; Tparam &gt;']]],
+  ['menumanager',['MenuManager',['../class_d_g_tools_1_1_u_i_1_1_menu_manager.html',1,'DGTools::UI']]],
+  ['modal',['Modal',['../class_d_g_tools_1_1_u_i_1_1_modal.html',1,'DGTools.UI.Modal'],['../class_d_g_tools_1_1_u_i_1_1_modal.html',1,'DGTools.UI.Modal&lt; Tparam &gt;']]],
+  ['modal_3c_20popupsettings_20_3e',['Modal&lt; PopupSettings &gt;',['../class_d_g_tools_1_1_u_i_1_1_modal.html',1,'DGTools::UI']]],
+  ['modalevent',['ModalEvent',['../class_d_g_tools_1_1_u_i_1_1_modal_1_1_modal_event.html',1,'DGTools::UI::Modal']]],
+  ['modalmanager',['ModalManager',['../class_d_g_tools_1_1_u_i_1_1_modal_manager.html',1,'DGTools::UI']]]
 ];
