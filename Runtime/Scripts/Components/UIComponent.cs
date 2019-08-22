@@ -17,7 +17,7 @@ namespace DGTools.UI
         [Tooltip("Choose what will the UIComponent do when hidden")]
         public OnHideAction onHideAction = OnHideAction.disable;
         [Tooltip("Show() will be called on Awake() if true")]
-        public bool showOnAwake = false;
+        public bool showOnAwake = true;
         #endregion
 
         #region Events

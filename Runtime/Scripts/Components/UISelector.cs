@@ -4,16 +4,20 @@ using System.Linq;
 
 namespace DGTools.UI
 {
-    public abstract class UIPalet : UIComponent, IFillable<IUITilable>
+    public abstract class UISelector : UIComponent, IFillable<IUITilable>
     {
         #region Public Variables
-        [Tooltip("Insert your tile model")]
+        [Tooltip("Relations")]
+        [SerializeField] protected Transform tilesParent;
         [SerializeField] protected UISelectableTile tileModel;
-        [SerializeField] [TypeConstraint(typeof(IUITilable))] List<GameObject> items;
+        [Tooltip("If true, it will call the OnTileClick() method of the IUITilable when tile selected")]
+        [SerializeField] protected bool useOnTileClick = false;
+        [Tooltip("Items that will be instantiated by default")]
+        [SerializeField] protected List<Object> items;
         #endregion
 
         #region Properties
-        protected UISelectableTile[] tiles => GetComponentsInChildren<UISelectableTile>();
+        protected UISelectableTile[] tiles => tilesParent.GetComponentsInChildren<UISelectableTile>();
         #endregion
 
         #region Publics Methods
@@ -85,23 +89,53 @@ namespace DGTools.UI
         protected override void Build()
         {
             List<IUITilable> tmpT = new List<IUITilable>();
-            foreach (GameObject obj in items)
-                tmpT.Add(obj.GetComponent<IUITilable>());
+            foreach (Object obj in items)
+            {
+                IUITilable item;
+                if (obj is GameObject)
+                    item = (obj as GameObject).GetComponent<IUITilable>();
+                else
+                    item = obj as IUITilable;
+                tmpT.Add(item);
+            }
+                
 
             AddItems(tmpT.ToArray());
         }
 
         protected virtual UISelectableTile InstantiateTile(IUITilable item)
         {
-            UISelectableTile tile = Instantiate(tileModel, rectTransform);
-            tile.SetItem(item);
+            UISelectableTile tile = Instantiate(tileModel, tilesParent);
+            tile.SetItem(item, useOnTileClick);
             tile.button.onClick.AddListener(delegate { OnTileSelect(tile); });
             return tile;
+        }
+
+        protected virtual bool IsValidItem(Object obj) {
+            GameObject go = obj as GameObject;
+            if (go != null)
+                return go.GetComponent<IUITilable>() != null;
+            else
+                return obj is IUITilable;
         }
         #endregion
 
         #region Abstract Methods
         protected abstract void OnTileSelect(UISelectableTile tile);
+        #endregion
+
+        #region Editor Methods
+        private void OnValidate()
+        {
+            if (items != null)
+            {
+                foreach (Object obj in items)
+                {
+                    if (!IsValidItem(obj))
+                        Debug.Log(string.Format("{0} should have a component that implements IUITilable, {1} will ignore it", obj.name, name));
+                }
+            }
+        }
         #endregion
     }
 }

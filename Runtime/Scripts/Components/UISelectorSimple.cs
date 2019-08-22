@@ -4,7 +4,7 @@ using System;
 
 namespace DGTools.UI
 {
-    public class UIPaletSimple : UIPalet
+    public class UISelectorSimple : UISelector
     {
         #region Public Variables
         [Tooltip("Check if you can deselect tiles on this palet")]

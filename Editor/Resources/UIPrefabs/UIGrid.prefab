@@ -481,8 +481,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd7bbd46f5848c042a7eb6669d865ed2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  onHideAction: 1
-  showOnAwake: 0
+  onHideAction: 3
+  showOnAwake: 1
   onShow:
     m_PersistentCalls:
       m_Calls: []
@@ -524,7 +524,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, Unity.ugui,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: 68448a1699dfde54dabf7c4d5c19c9ba, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1

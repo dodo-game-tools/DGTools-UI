@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['hide',['Hide',['../class_d_g_tools_1_1_u_i_1_1_u_i_component.html#a793649f2afba25d3dace5ea144610601',1,'DGTools.UI.UIComponent.Hide(bool skipAnim=false)'],['../class_d_g_tools_1_1_u_i_1_1_u_i_component.html#ae40085407bb3664aaac0b629c5b34b92',1,'DGTools.UI.UIComponent.Hide(UnityAction&lt; UIComponent &gt; action)']]]
+  ['getitems',['GetItems',['../class_d_g_tools_1_1_u_i_1_1_u_i_grid.html#a29aad7799900a44d829956facae65464',1,'DGTools.UI.UIGrid.GetItems()'],['../class_d_g_tools_1_1_u_i_1_1_u_i_selector.html#abc6bb70d1f9eb2b290ff3220ea339693',1,'DGTools.UI.UISelector.GetItems()']]],
+  ['gettiles',['GetTiles',['../class_d_g_tools_1_1_u_i_1_1_u_i_grid.html#a9a335a86172165d6036620d79fa730d6',1,'DGTools::UI::UIGrid']]]
 ];
