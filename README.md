@@ -41,7 +41,7 @@ Container components are the power of this tool, they are modular and can be use
 
  - **UIPanelSwitcher** : This component creates **UISelectableTiles** from **UIPanels** and switches beetween panels when you select matching tile
 
-###Modals
+### Modals
 Modals can be displayed in front of all your UI with a blocking background. You can create you modals and easily open them from scripts. You just have to follow those steps :
 
 **1. Create your Modal**
@@ -108,7 +108,7 @@ Menus can be used like modals (Modal => Menu, ModalManager => MenuManager). More
 
  **Donovan Persent ([Poulpinou](https://github.com/Poulpinou))**
 
-####Contributors :
+#### Contributors :
 -  **Quentin Roussel ([Hermadeus](https://github.com/Hermadeus))**
 
 ## Licenses
