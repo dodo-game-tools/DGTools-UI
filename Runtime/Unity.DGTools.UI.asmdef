@@ -1,8 +1,8 @@
 {
     "name": "Unity.DGTools.UI",
     "references": [
-        "Unity.DGTools.Core",
-        "Unity.ugui"
+        "GUID:5e378024c203dd34a850bea4e7bb1d95",
+        "GUID:2bafac87e7f4b9b418d9448d219b01ab"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
